@@ -38,6 +38,8 @@ DROPOUT = 0.1
 BATCH_SIZE = 32
 OPTIMIZER = 'adam'
 
+#%%
+
 # If the dataset, embedding matrix and word count exist in the local directory
 if exists(Q1_TRAINING_DATA_FILE) and exists(Q2_TRAINING_DATA_FILE) and exists(LABEL_TRAINING_DATA_FILE) and exists(NB_WORDS_DATA_FILE) and exists(WORD_EMBEDDING_MATRIX_FILE):
     # Then load them
@@ -120,7 +122,7 @@ else:
     np.save(open(WORD_EMBEDDING_MATRIX_FILE, 'wb'), word_embedding_matrix)
     with open(NB_WORDS_DATA_FILE, 'w') as f:
         json.dump({'nb_words': nb_words}, f)
-
+#%%
 # Partition the dataset into train and test sets
 X = np.stack((q1_data, q2_data), axis=1)
 y = labels
